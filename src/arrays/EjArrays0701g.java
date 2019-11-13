@@ -6,8 +6,10 @@ public class EjArrays0701g {
         //Scanner teclado = new Scanner(System.in);
         temperaturaMeses = new int [12];
         int[] arrayInicial = new int [12];
-        int[] arrayFinal = new int [12];
-        int ultimoNum, posicionFinal;
+        int primeraPosArray = 0;
+        int ultimaPosArray = 0;
+
+
         
         // calculamos un numero aleatorio y lo guardamos en una posicion del array 
         for (int i = 0; i < 12; i++) {
@@ -27,31 +29,27 @@ public class EjArrays0701g {
             else System.out.print(temperaturaMeses[i]+" ,");
         }
         
-        System.out.println("Estes son los numeros movidos una posicion a la derecha , pasando el ultimo a primer lugar :");
+        System.out.println("Estes son los numeros movidos una posicion a la izquierda , pasando el primero al ultimo lugar :");
         
         // guardamos el array en otro variable para trabajar con ella
         for (int i = 0; i < temperaturaMeses.length; i++) {
-            arrayInicial[i] = temperaturaMeses[i];
+            // si la iteracion es la primera guardamos en una variable el entero que contiene
+            if( i + 1 < temperaturaMeses.length ) arrayInicial[i] = temperaturaMeses[i + 1];
         }
-
-        // guardamos el ultimo numero del array en una variable
-        posicionFinal = temperaturaMeses.length - 1;
-        ultimoNum = arrayInicial[posicionFinal];
+        // pasarmos el ultimo para el primero  y el primero para el segundo
+        arrayInicial[arrayInicial.length - 1] = temperaturaMeses[0];
         
-        // iteramos desde la penultima posicion de array hasta cero de manera decreciente
-        for (int i = posicionFinal - 1; i >=0 ; i--) {
-            // desplazamos el entero de la siguiente posicion a la anterior ej: numero que hay el posicion 7 pasa a ocupar la posicion 8
-            arrayInicial[i + 1] = arrayInicial[i];
- 
-        }
-        // igualamos la primera posicion del array con la variable que tenia guardado el ultimo numero del array
-        arrayInicial[0] = ultimoNum;
 
-        // iteramos el array para imprimir todos los numeros
-        for (int i = 0; i < 12; i++) {
-            if (i == arrayInicial.length - 1)System.out.println(arrayInicial[i]);
+        // imprimimos el segundo array ya con las posiciones desplazadas hacia la izquierda
+        for (int i = 0; i < temperaturaMeses.length; i++) {
+            if (i == temperaturaMeses.length - 1)System.out.println(arrayInicial[i]);
             else System.out.print(arrayInicial[i]+" ,");
+            
         }
+        
+
+ 
+        
         System.out.println("");
     } // fin main
 }     // fin class
