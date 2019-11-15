@@ -41,6 +41,5 @@ public class EjArrays07021c {
         
         
         
-        
     }   // fin main
 }       // fin class

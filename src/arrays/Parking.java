@@ -23,17 +23,9 @@ public class Parking {
         ocupadas = 0;
         return n;
     }
-    
+    // esto tiene trabajo de mas cambia lo que te dijo fernando por que las plazaa ocupadas sustituyen a los for que tienes por abajo
     public int[] getArrayParking(){
         return matriculas;
-        /*
-        for (int i = plazas - 1; i >= 0; i--) {
-             if (matriculas[i] !=0){
-                int matricula = matriculas[i];
-                return matricula;
-            } else return 0;
-        }
-        return 0;*/
     }
     
     public int aparcar(int matricula){

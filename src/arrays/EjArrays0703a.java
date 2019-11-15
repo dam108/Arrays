@@ -16,11 +16,15 @@ public class EjArrays0703a {
     }   // fin main
     
     public static int pedirOpcion(){
-        System.out.println("Pulsa 1 para aparcar:");
-        System.out.println("Pulsa 2 para consultar las matriculas de los coches aparcados");
-        System.out.println("Pulsa 3 para desaparcar");
-        System.out.println("Pulsa 4 para saber la cantidad de plazas libres");
-        System.out.println("Pulsa 0 para salir: ");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("MENU PARKING");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("1.- Aparcar:");
+        System.out.println("2.- Consultar las matriculas de los coches aparcados");
+        System.out.println("3.- Desaparcar");
+        System.out.println("4.- Saber la cantidad de plazas libres");
+        System.out.println("0.- Salir: ");
+        System.out.println("-------------------------------------------------------");
         int opcion = teclado.nextInt();
         return opcion;
         
@@ -32,9 +36,9 @@ public class EjArrays0703a {
                 System.out.println("Introduce la matricula: ");
                 int matricula = teclado.nextInt();
                 int plaza = parking.aparcar(matricula);
-                if (plaza == 0)System.out.println("El parking esta lleno\n\n\n");
+                if (plaza == 0)System.out.println("El parking esta lleno\n");
                 else {
-                    System.out.println("Se a aparcado tu coche con exito.\n\n\n");
+                    System.out.println("Se a aparcado tu coche con exito.\n");
                     /* imprimimos las plazas ocupadas con las matriculas
                     System.out.println("Estado del parking: ");
                     estadoParking();*/
@@ -47,12 +51,12 @@ public class EjArrays0703a {
             case 3:
                 System.out.println("Vamos a sacar el ultimo coche que entro al garaje");
                 int matriculaRetirar = parking.desaparcar();
-                if (matriculaRetirar != 0) System.out.println("Se ha retirado el coche con la matricula: "+matriculaRetirar+"\n\n\n");
-                else System.out.println("No hay ningun coche en el parking\n\n\n");
+                if (matriculaRetirar != 0) System.out.println("Se ha retirado el coche con la matricula: "+matriculaRetirar+"\n");
+                else System.out.println("No hay ningun coche en el parking\n");
                 break;
             case 4:
                 int plazasLibres = parking.getPlazasLibres();
-                System.out.println("El parking tiene "+plazasLibres+" plazas libres.\n\n\n");
+                System.out.println("El parking tiene "+plazasLibres+" plazas libres.\n");
                 break;
         }
     }
@@ -63,7 +67,7 @@ public class EjArrays0703a {
             int numPlaza = i + 1;
             int matricula = matriculas[i];
             if ( matriculas[i] !=0) System.out.printf("La plaza %d esta ocupada por el coche %d.\n", numPlaza, matricula );
-            else System.out.printf("La plaza %d no esta ocupada por ningun coche.\n", numPlaza);
+            //else System.out.printf("La plaza %d no esta ocupada por ningun coche.\n", numPlaza);
         }
         System.out.println("\n\n\n");
     }
