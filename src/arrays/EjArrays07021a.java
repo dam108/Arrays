@@ -34,9 +34,6 @@ public class EjArrays07021a {
         // consultamos el numero de aciertos y los imprimimos
         int aciertos = primitiva.numeroAciertos(boleto);
         System.out.println("tu boleto tiene "+aciertos+" aciertos");
-        
-        
-        
-        
+
     }   // fin main
 }       // fin class

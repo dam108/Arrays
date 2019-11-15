@@ -1,11 +1,15 @@
 package arrays;
 
 public class Primitiva {
-    private int[] resultadoSorteo = new int[6];
-    private int[] boleto = new int[6];
-    private int [][] boletos;
+    private final int[] resultadoSorteo;
     private boolean repetidos = false;
+    
+    /* CONSTRUCTOR */
     Primitiva () {
+        
+        // incializamos arrays
+        resultadoSorteo = new int[6];
+        
         // generamos nuemeros aleatorios entre 1 y 49 y los guaradamos en el array mientras no estan repetidos
         for (int i = 0; i < resultadoSorteo.length; i++) {
             int n;
@@ -40,7 +44,6 @@ public class Primitiva {
     }
     
     public int numeroAciertos(int [] arreglo){
-        
         int contAciertos = 0;
         // en cada iteracion
         for (int i = 0; i < resultadoSorteo.length; i++) {
@@ -52,38 +55,4 @@ public class Primitiva {
         return contAciertos;
     }
     
-    public int[][] generarBoletos(int cantidad, int longitud){
-        int [][] boletos = new int[cantidad][longitud];
-        for (int i = 0; i < boletos.length; i++) {
-            
-            for (int j = 0; j < boletos[i].length; j++) {
-                // comprobamos si esta repetido y si no lo guardamos
-                int n;
-                // generamos un numero y hacemos un bucle que genere el numero otra vez mientras esta repetido
-                do {
-                    n = (int)(Math.random()* 49 )+1;
-                    repetidos = repetidos(boletos[i], n);
-                } while (repetidos);
-                boletos[i][j] = n;
-            }
-        }
-        return boletos;
-    }
-    
-    public int[] generarBoleto() {
-        for (int i = 0; i < boleto.length; i++) {
-            int n;
-            // generamos un numero y hacemos un bucle que genere el numero otra vez mientras esta repetido
-            do {
-                // genero un numero
-                n = (int)(Math.random()* 49 )+1;
-                // comprobamos si ese numero esta repetido
-                repetidos = repetidos(boleto, n);
-            } while (repetidos);
-            boleto[i] = n;
-        } // fin for
-        return boleto;
-    }
 } // fin class
-
-/* sacar metodos que no van aqui y ponerlos en los mains*/

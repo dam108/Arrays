@@ -1,12 +1,13 @@
 package arrays;
 import java.util.Scanner;
 public class EjArrays07021c {
+    public static Primitiva primitiva;
     public static void main(String[] args) {
         int aciertos = 0;
         long contador = 0;
         
         // creamos el objeto y los arreglos 
-        Primitiva primitiva = new Primitiva();
+        primitiva = new Primitiva();
         int [] resultadoSorteo = new int[6];
         int [] boleto = new int[6];
         
@@ -15,7 +16,7 @@ public class EjArrays07021c {
         
         // generamos boletos hasta que tengamos uno con 6 aciertos
         while (aciertos != 6){
-            boleto = primitiva.generarBoleto();
+            boleto = generarBoleto(boleto.length);
             aciertos = primitiva.numeroAciertos(boleto);
             contador++;
             
@@ -23,23 +24,40 @@ public class EjArrays07021c {
         
         // imprimimos los numeros del arreglo de la clase
         System.out.println("El numero de la primitiva de hoy es: ");
-        for (int i = 0; i < resultadoSorteo.length ; i++) {
-            if (i == resultadoSorteo.length - 1)System.out.println(resultadoSorteo[i]);
-            else System.out.print(resultadoSorteo[i]+" ,");
-        }
+        imprimirBoletos(resultadoSorteo);
         
         // mostramos los numeros del boleto
         System.out.println("El numero del boleto premiado es: ");
-        for (int i = 0; i < boleto.length ; i++) {
-            if (i == boleto.length - 1)System.out.println(boleto[i]);
-            else System.out.print(boleto[i]+" ,");
-        }
-        
+        imprimirBoletos(boleto);
+                
         // consultamos el numero de aciertos y los imprimimos
         System.out.println("tu boleto tiene "+aciertos+" aciertos");
         System.out.println("Es el boleto numero: "+contador+" que se genera.");
         
-        
-        
     }   // fin main
+    
+    public static int[] generarBoleto(int longitudArray) {
+        boolean repetidos = false;
+        int[] boleto = new int[longitudArray];
+        for (int i = 0; i < longitudArray; i++) {
+            int n;
+            // generamos un numero y hacemos un bucle que genere el numero otra vez mientras esta repetido
+            do {
+                // genero un numero
+                n = (int)(Math.random()* 49 )+1;
+                // comprobamos si ese numero esta repetido
+                repetidos = primitiva.repetidos(boleto, n);
+            } while (repetidos);
+            boleto[i] = n;
+        } // fin for
+        return boleto;
+    }
+    
+    public static void imprimirBoletos(int [] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            if (i == arr.length - 1)System.out.println(arr[i]);
+            else System.out.print(arr[i]+" ,");
+        }
+    }
+    
 }       // fin class

@@ -3,6 +3,9 @@ package arrays;
 public class EjArrays0702 {
     public static void main(String[] args) {
         
+        /* PROGRAMA BASE NO SE PIDE PERO LO USO PARA CHEKEAR COSAS*/
+        
+        
         Primitiva primitva = new Primitiva();
         int [] resultadoSorteo = new int[6];
 
