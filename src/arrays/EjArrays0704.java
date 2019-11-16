@@ -1,9 +1,11 @@
 package arrays;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class EjArrays0703a {
+public class EjArrays0704 {
     public static Scanner teclado = new Scanner(System.in);
-    public static Parking parking = new Parking();
+    public static Parking2 parking = new Parking2();
     public static void main(String[] args) {
         int opcion;
         do {
@@ -38,22 +40,21 @@ public class EjArrays0703a {
                 String matricula = teclado.nextLine();
                 boolean plaza = parking.aparcar(matricula);
                 if (!plaza)System.out.println("El parking esta lleno\n");
-                else {
-                    System.out.println("Se a aparcado tu coche con exito.\n");
-                    /* imprimimos las plazas ocupadas con las matriculas
-                    System.out.println("Estado del parking: ");
-                    estadoParking();*/
-                }
+                else System.out.println("Se a aparcado tu coche con exito.\n");
                 break;
              case 2:
                 if (parking.plazasOcupadas() == 0) System.out.println("No hay coches en el parking");
                 else estadoParking();
                 break;
             case 3:
-                System.out.println("Vamos a sacar el ultimo coche que entro al garaje");
-                String matriculaRetirar = parking.desaparcar();
-                if (!matriculaRetirar.equals("")) System.out.println("Se ha retirado el coche con la matricula: "+matriculaRetirar+"\n");
-                else System.out.println("No hay ningun coche en el parking\n");
+                int posicion = parking.getPlazasLibres();
+                if (posicion < 20){
+                    System.out.println("Vamos a sacar el ultimo coche que entro al garaje");
+                    double precioCentimos = parking.getPrecioParking(posicion);
+                    if( precioCentimos == 3000) retirarCobrar(posicion, precioCentimos);
+                    else retirarCobrar(posicion, precioCentimos);
+                }else System.out.println("No hay ningun coche en el parking.");
+                
                 break;
             case 4:
                 int plazasLibres = parking.getPlazasLibres();
@@ -61,16 +62,27 @@ public class EjArrays0703a {
                 break;
         }
     }
-    
+
     public static void estadoParking(){
         String [] matriculas = parking.getArrayParking();
+        LocalTime [] horas = parking.getHoraParking();
         for (int i = parking.getPlazas() - 1; i >= 0; i--) {
             int numPlaza = parking.getPlazas() - i;
             String matricula = matriculas[i];
-            if ( !matriculas[i].equals("") ) System.out.printf("La plaza %d esta ocupada por el coche %s.\n", numPlaza, matricula );
-            //else System.out.printf("La plaza %d no esta ocupada por ningun coche.\n", numPlaza);
+            LocalTime hora = horas[i];
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("kk:mm:ss");
+            
+            if ( !matriculas[i].equals("") ) {
+                System.out.printf("La plaza %d esta ocupada por el coche %s", numPlaza, matricula );
+                System.out.println(" que entro en el parking a la hora: "+hora.format(formatter));
+            }
         }
         System.out.println("\n");
     }
-
+    
+    public static void retirarCobrar(int posicion, double precio){
+        String matriculaRetirar = parking.desaparcar();
+            double precioParking = precio / 100;
+                System.out.printf("Se ha retirado el coche con la matricula: %s, el precio de la estancia es de: %.2f €\n", matriculaRetirar, precioParking);
+    }
 }       // fin class

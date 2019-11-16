@@ -2,56 +2,54 @@ package arrays;
 
 public class Parking {
     private final int plazas;
-    private int [] matriculas = new int[20];
-    private int ocupadas = 0;
+    private String [] matriculas;
+    private int ocupadas;
     private int libres;
     
     /*CONSTRUCTOR*/
     Parking (){
+        
+        matriculas = new String [20];
         plazas = 20;
+        libres =  plazas;
+        ocupadas = 0;
+        // creamos el array matriculas con un cero en cada posicion incial indicando que estan todas vacias
         for (int i = 0; i < plazas; i++) {
-            matriculas[i] = 0;
+            matriculas[i] = "";
         }
     } // fin constructor
     
     /*METODOS*/
+    
     public int plazasOcupadas(){
         for (int i = 0; i < matriculas.length; i++) {
-            if (matriculas[i]!=0) ocupadas++;
+            if (!matriculas[i].equals("")) ocupadas++;
         }
         int n = ocupadas;
         ocupadas = 0;
         return n;
     }
-    // esto tiene trabajo de mas cambia lo que te dijo fernando por que las plazaa ocupadas sustituyen a los for que tienes por abajo
-    public int[] getArrayParking(){
+    
+    public String[] getArrayParking(){
         return matriculas;
     }
     
-    public int aparcar(int matricula){
-
-        if (ocupadas == 20) return 0;
-        else {
-            for (int i = plazas - 1; i >= 0; i--) {
-                if (matriculas[i] == 0){
-                    matriculas[i] = matricula;
-                    return i;
-                }
-            }
-        } 
-        return 0;
+    public boolean aparcar(String matricula){
+        int n = plazasOcupadas();
+        int l = getPlazasLibres() - 1;
+        if ( n == 20 ) return false;
+        else matriculas[l] = matricula;
+        return true;
     }
     
-    public int desaparcar(){
-        for (int i = 0; i < plazas; i++) {
-            if (matriculas[i] != 0){
-                int matriculaRetirar = matriculas[i];
-                matriculas[i] = 0;
-                return matriculaRetirar;
-            }
+    public String desaparcar(){
+        int n = getPlazasLibres();
+        if (n == plazas) return "";
+        else {
+            String matriculaRetrirar = matriculas[n];
+            matriculas[n] = "";
+            return matriculaRetrirar;
         }
-        return 0;
-        
     }
     
     public int getPlazasLibres(){
@@ -62,6 +60,5 @@ public class Parking {
     public int getPlazas(){
         return this.plazas;
     }
-
     
 } // fin class
