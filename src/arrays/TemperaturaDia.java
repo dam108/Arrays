@@ -20,25 +20,52 @@ public class TemperaturaDia {
             for (int j = 0; j < temperaturas[i].length; j++) {
                 switch (i + 1){
                     case 1:
-                    case 3:
-                    case 11:
-                    case 12: 
-                        temperaturas[i][j] = (int) (Math.random()* 31) - 10;
-                        break;    
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10: 
-                        if (j+1 > 30) temperaturas[i][j] = 999;
-                        else temperaturas[i][j] = (int) (Math.random()* 26) + 10 ;
+                        if (j+1 > 31) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 31) - 10;
                         break;
                     case 2:
                         if (j+1 > 28 ) temperaturas[i][j] = 999;
                         else temperaturas[i][j] = (int) (Math.random()* 31) - 10;
                         break;
+                    case 3:
+                        if (j+1 > 31) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 31) - 10;
+                        break;
+                    case 4:
+                        if (j+1 > 30) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 26) + 10 ;
+                        break;
+                    case 5:
+                        if (j+1 > 31) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 26) + 10 ;
+                        break;
+                    case 6:
+                        if (j+1 > 30) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 26) + 10 ;
+                        break;
+                    case 7:
+                        if (j+1 > 31) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 26) + 10 ;
+                        break;
+                    case 8:if (j+1 > 31) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 26) + 10 ;
+                        break;
+                    case 9:
+                        if (j+1 > 30) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 26) + 10 ;
+                        break;
+                    case 10: 
+                        if (j+1 > 31) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 26) + 10 ;
+                        break;
+                    case 11:
+                        if (j+1 > 30) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 31) - 10;
+                        break;
+                    case 12: 
+                        if (j+1 > 31) temperaturas[i][j] = 999;
+                        else temperaturas[i][j] = (int) (Math.random()* 31) - 10;
+                        break;    
                 }
             }
         }
@@ -68,7 +95,6 @@ public class TemperaturaDia {
         }
         // dividir el total entre el total de los dias que no tengan como temperatura 999
         return totalTemperaturas / totalDias;
-    
     }
 
     /* GETTERS Y SETTERS */
@@ -85,6 +111,16 @@ public class TemperaturaDia {
             }
         }
         return diaCaluroso;
+    }
+    
+    public boolean get30Grados(){
+        int dia30Grados = 30;
+        for (int i = 0; i < temperaturas.length; i++) {
+            for (int j = 0; j < temperaturas[i].length; j++) {
+                if (temperaturas[i][j] > dia30Grados && temperaturas[i][j] < 999) return true;
+            }
+        }
+        return false;
     }
 
 } // fin class

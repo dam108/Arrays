@@ -24,7 +24,10 @@ public class EjArrays0706 {
         System.out.println("-----------------------------------------------------------------------");
         System.out.println("El día mas caluroso del año es: "+ temperaturaDia.getDiaCaluroso()+" º.");
         System.out.println("-----------------------------------------------------------------------");
-              
+        System.out.println("-----------------------------------------------------------------------");
+        if (temperaturaDia.get30Grados()) System.out.println("Hay un dia que pasa de 30 grados.");
+        else System.out.println("No hay ningun dia que pase de 30 grados.");
+        System.out.println("-----------------------------------------------------------------------");     
         
         for (int i = 0; i < temperaturas.length; i++) {
             System.out.println("-----------------------------------------------------------------------");
