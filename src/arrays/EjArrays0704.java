@@ -32,6 +32,7 @@ public class EjArrays0704 {
         return opcion;
         
     }
+    
     public static void ejecutarOpcion(int opcion){
         
         switch(opcion){
