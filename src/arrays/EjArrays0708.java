@@ -16,12 +16,12 @@ public class EjArrays0708 {
         agenda[5] = new AgendaTelefonica("Juan", 666666666 );
         agenda[6] = new AgendaTelefonica("Hector", 677777777 );
         agenda[7] = new AgendaTelefonica("Jose", 688888888);
-        agenda[8] = new AgendaTelefonica("Marta", 699999999 );
+        agenda[8] = new AgendaTelefonica("Daniel", 699999999 );
     
         do {
-            System.out.println("Introduce un nombre: ");
-            String nombre = teclado.nextLine();
-            buscar = buscarNombre(nombre);
+            /*System.out.println("Introduce un nombre: ");
+            String nombre = teclado.nextLine();*/
+            buscar = buscarNombre(args[0]);
         } while(!buscar);
         
         
@@ -39,11 +39,8 @@ public class EjArrays0708 {
                 System.out.println("-------------------");
                 return true;
             } 
-            else {
-                System.out.println("El nombre no esta en la agenda.");
-                return false;
-            }
         }
+        System.out.println("El nombre no esta en la agenda.");
         return false;
     }
         

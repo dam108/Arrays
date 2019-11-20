@@ -6,18 +6,18 @@ public class EjArrays0707 {
     
     public static void main(String[] args) {
         teclado = new Scanner(System.in);
-        float c1, c2;
+        float c1 = Float.parseFloat(args[0]) , c2 = Float.parseFloat(args[1]);
         boolean validarInt;
         do {
             
-            System.out.println("Introduce el cateto 1: ");
-            c1 = teclado.nextFloat();
+            /*System.out.println("Introduce el cateto 1: ");
+            c1 = teclado.nextFloat();*/
             validarInt = checkEnteros(c1);
         } while (!validarInt);
 
         do {
-            System.out.println("Introduce el cateto 2: ");
-            c2 = teclado.nextFloat();
+           /* System.out.println("Introduce el cateto 2: ");
+            c2 = teclado.nextFloat();*/
             validarInt = checkEnteros(c2);
         } while (!validarInt);
         

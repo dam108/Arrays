@@ -1,3 +1,10 @@
+/* AGREGAR MODIFICACIONES */
+// partimos de que tenemos una variable con 0 productos 
+// cuando metemos un producto aumentamos la variable en uno y cada vez que eliminamos un producto disminuimos la variable en 1. 
+// nos recorremos el array desde el cero hasta la variable - 1.
+// y asi no necesitamos recorrernos el array entero , solo necesitmos recorrer hasta la cantidad de productos que tenemos.
+/* FIN AGREGAR LA MODIFICACION*/
+
 package arrays;
 
 public class CarritoCompra {
