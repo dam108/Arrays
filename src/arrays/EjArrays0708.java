@@ -3,20 +3,20 @@ package arrays;
 import java.util.Scanner;
 public class EjArrays0708 {
     public static Scanner teclado;
-    public static AgendaTelefonica [] agenda = new AgendaTelefonica [9];
+    public static Contacto [] agenda = new Contacto [9];
     public static void main(String[] args) {
         boolean buscar;
         teclado = new Scanner(System.in);
         
-        agenda[0] = new AgendaTelefonica("Marta", 611111111 );
-        agenda[1] = new AgendaTelefonica("Miguel", 622222222 );
-        agenda[2] = new AgendaTelefonica("Ana", 633333333 );
-        agenda[3] = new AgendaTelefonica("Daniel", 644444444);
-        agenda[4] = new AgendaTelefonica("Pedro", 655555555 );
-        agenda[5] = new AgendaTelefonica("Juan", 666666666 );
-        agenda[6] = new AgendaTelefonica("Hector", 677777777 );
-        agenda[7] = new AgendaTelefonica("Jose", 688888888);
-        agenda[8] = new AgendaTelefonica("Daniel", 699999999 );
+        agenda[0] = new Contacto("Marta", 611111111 );
+        agenda[1] = new Contacto("Miguel", 622222222 );
+        agenda[2] = new Contacto("Ana", 633333333 );
+        agenda[3] = new Contacto("Daniel", 644444444);
+        agenda[4] = new Contacto("Pedro", 655555555 );
+        agenda[5] = new Contacto("Juan", 666666666 );
+        agenda[6] = new Contacto("Hector", 677777777 );
+        agenda[7] = new Contacto("Jose", 688888888);
+        agenda[8] = new Contacto("Daniel", 699999999 );
     
         do {
             /*System.out.println("Introduce un nombre: ");

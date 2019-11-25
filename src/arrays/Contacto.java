@@ -1,10 +1,10 @@
 package arrays;
 
-public class AgendaTelefonica {
+public class Contacto {
     private String nombre;
     private int telefono;
     /*CONSTRUCTOR*/
-    AgendaTelefonica (String n, int t){
+    Contacto (String n, int t){
          nombre = n;
          telefono = t;
     }
